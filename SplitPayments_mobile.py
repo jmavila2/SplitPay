@@ -68,7 +68,7 @@ def format_cents(cents):
 
 # ---------- Streamlit UI ----------
 
-st.title("💸 Group Expense Netting Tool")
+st.title("💸 Group Expense Split Tool")
 
 # Participants
 st.header("Participants")
@@ -117,4 +117,5 @@ if st.session_state.expenses:
         else:
             for d, c, amt in transfers:
                 st.write(f"**{d} → {c}: {format_cents(amt)}**")
+
 
