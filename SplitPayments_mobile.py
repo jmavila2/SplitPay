@@ -74,7 +74,7 @@ st.title("💸 Group Expense Split Tool")
 st.header("Participants")
 participants_input = st.text_input(
     "Enter participant names separated by commas",
-    placeholder="Jesus, Mike, Anna, Chris"
+    placeholder="Enter names"
 )
 
 if participants_input:
@@ -90,7 +90,7 @@ if "expenses" not in st.session_state:
 
 if names:
     payer = st.selectbox("Who paid?", names)
-    amount = st.number_input("Amount", min_value=0.01, step=0.01)
+    amount = st.number_input("Amount", min_value=1, step=1)
     participants = st.multiselect("Who participated?", names, default=names)
 
     if st.button("Add Expense"):
@@ -117,5 +117,6 @@ if st.session_state.expenses:
         else:
             for d, c, amt in transfers:
                 st.write(f"**{d} → {c}: {format_cents(amt)}**")
+
 
 
